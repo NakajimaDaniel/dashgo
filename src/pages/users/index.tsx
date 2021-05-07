@@ -7,6 +7,7 @@ import { RiAddLine, RiPencilLine } from "react-icons/ri";
 import { Header } from "../../components/Header";
 import { Pagination } from "../../components/Pagination";
 import { Sidebar } from "../../components/Sidebar";
+import { api } from "../../services/api";
 
 
 
@@ -18,8 +19,8 @@ export default function UserList() {
   })
 
   const { data, isLoading, isFetching, error } = useQuery('users', async () => {
-    const response = await fetch('http://localhost:3000/api/users')
-    const data = await response.json();
+    const { data } = await api.get('users')
+    
 
     const users = data.users.map(user => {
       return {
