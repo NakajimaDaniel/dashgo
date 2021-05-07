@@ -21,7 +21,6 @@ export default function UserList() {
   const { data, isLoading, isFetching, error } = useQuery('users', async () => {
     const { data } = await api.get('users')
     
-
     const users = data.users.map(user => {
       return {
         id: user.id,
