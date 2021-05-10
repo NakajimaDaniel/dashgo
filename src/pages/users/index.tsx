@@ -56,43 +56,47 @@ export default function UserList() {
             </Flex>
           ): (
             <>
-            <Table colorScheme="whiteAlpha" >
-            <Thead>
-              <Tr>
-                <Th px={["4", "4", "6"]} color="gray.300" w="8" >
-                  <Checkbox colorScheme="pink" />
-                </Th>
-                <Th>Usuário</Th>
-                {isWideVersion && <Th>Data de Cadastro</Th>}
-                
-              </Tr>
-            </Thead>
-
-            <Tbody>
-
-              {data.map(user => {
-                return (
-                  <Tr key={user.id}>
-                    <Td px={["4", "4", "6"]}>
+              <Table colorScheme="whiteAlpha" >
+              <Thead>
+                <Tr>
+                  <Th px={["4", "4", "6"]} color="gray.300" w="8" >
                     <Checkbox colorScheme="pink" />
-                    </Td>
-                    <Td>
-                      <Box>
-                        <Text fontWeigth="bold">{user.name}</Text>
-                        <Text fontSize="sm" color="gray.300">{user.email}</Text>
-                      </Box>
-                    </Td>
-                    {isWideVersion && <Td>{user.createdAt}</Td>}
-                  </Tr>
+                  </Th>
+                  <Th>Usuário</Th>
+                  {isWideVersion && <Th>Data de Cadastro</Th>}
+                  
+                </Tr>
+              </Thead>
 
-                )
-              })}
+              <Tbody>
 
-            </Tbody>
+                {data.map(user => {
+                  return (
+                    <Tr key={user.id}>
+                      <Td px={["4", "4", "6"]}>
+                      <Checkbox colorScheme="pink" />
+                      </Td>
+                      <Td>
+                        <Box>
+                          <Text fontWeigth="bold">{user.name}</Text>
+                          <Text fontSize="sm" color="gray.300">{user.email}</Text>
+                        </Box>
+                      </Td>
+                      {isWideVersion && <Td>{user.createdAt}</Td>}
+                    </Tr>
 
-          </Table>
+                  )
+                })}
 
-          <Pagination />
+              </Tbody>
+
+            </Table>
+
+            <Pagination 
+              totalCountOfRegisters={200}
+              currentPage={5}
+              onPageChange={() => {}}
+            />
           </>
           ) }
          
